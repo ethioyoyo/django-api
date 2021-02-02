@@ -16,6 +16,7 @@ def populate(N=5):
 
       fake_hosts = hosts.objects.get_or_create(h_host=fake_host_name,h_ip=fake_ip)[0]
 
+#testing the code
 
 if __name__ == '__main__':
    print("Populating hosts...")
