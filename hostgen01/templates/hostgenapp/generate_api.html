@@ -1,0 +1,21 @@
+{% extends 'hostgenapp/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+
+  {% if generated is True %}
+   <div>
+   <h1>Generated sucessfully!</h1>
+   </div>
+  {% endif %}
+   <div>
+   <h1>Genrate me fake hosts</h1>
+
+   <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="Generate">
+   </form>
+</div>
+{% endblock %}

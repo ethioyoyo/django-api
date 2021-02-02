@@ -1,0 +1,21 @@
+{% extends 'hostgenapp/base.html' %}
+{% block body_block %}
+<head>
+  <title>API List</title>
+
+ </head>
+<body>
+  <h1>Welcome to API host generator. </h1>
+  {% if hosts %}
+  <ol>
+   {% for host in hosts %}
+   <ul>
+     mgmt_cli add host name {{ host.h_host }} ipv4-address {{ host.h_ip }}
+   </ul>
+   {% endfor%}
+  </ol>
+ {% endif %}
+
+ 
+ </body>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ </head>
+
+ <body>
+  <nav class="navbar navbar-inverse" "navbar-header">
+   <div class="container-fluid">
+    <ul class="nav navbar-nav">
+     <li><a class="navbar-brand">Menu</a></li>
+     <li><a class="navbar-nav" href="{% url 'index' %}">Home</a></li>
+    
+     <li><a class="navbar-nav" href="{% url 'hostgenapp:register' %}">Register</a></li>
+
+     {% if user.is_authenticated %}
+      
+      <li><a class="navbar-nav" href="{% url 'api_gen' %}">Host API</a></li>
+      <li><a class="navbar-nav" href="{% url 'api_list' %}">Api Host List</a></li>
+      <li><a class="navbar-nav" href="{% url 'generate_hosts' %}">Generate Hosts </a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
+      <li><a class="navbar-brand">Welcome, {{ user.get_username }}</a></li>
+     {% else %}
+      <li><a class="navbar-link" href="{% url 'hostgenapp:user_login' %}">Login</a></li>
+     {% endif %}
+    </ul>
+   </div>
+  </nav>
+ 
+  <div class="container">
+   {% block body_block %}
+
+   {% endblock %}
+  </div>
+ </body>
+</html>
+

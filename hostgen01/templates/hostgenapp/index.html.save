@@ -1,0 +1,8 @@
+<!doctype html>
+ {% extends "hostgenapp/base.html" %}
+ {% block body_block %}
+
+ 
+  <h1>Welcome to API host generator. </h1>
+
+ {% endblock %}
